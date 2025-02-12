@@ -107,27 +107,6 @@ export default function Home() {
                                                 <button type="submit" className="theme-btn btn-one" onClick={login}><span>Login </span></button>
 
                                             </>
-
-                                            <div className="sec-title mb_50">
-                                            <h2>Login Hospital staff</h2>
-                                             </div>
-
-                                            <>
-                                                <div className="row clearfix">
-                                                    <div className="col-lg-6 col-md-6 col-sm-12 form-group">
-                                                        <input type="text" name="fname" placeholder="publicAddress" onChange={(e) => setAdhar(e.target.value)} required />
-                                                    </div>
-                                                    
-                                                    <div className="col-lg-6 col-md-6 col-sm-12 form-group">
-                                                        <input type="text" name="summary" placeholder="Password"  onChange={(e) => setPassword(e.target.value)} required />
-                                                    </div>
-                                                    
-                                                </div>
-                                                <button type="submit" className="theme-btn btn-one" onClick={loginStaff}><span>Login </span></button>
-                                                Don't have an account? <Link href="/staff-sign">Register</Link>
-                                            </>
-
-
                                     </div>
                                 </div>
 

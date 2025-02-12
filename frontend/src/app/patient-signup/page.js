@@ -83,7 +83,7 @@ export default function Home() {
         console.log("Submitting form with data:", patientData);
 
         // API call or Zustand action
-        axios.post(`http://localhost:8000/createRecord/${account}`, patientData);
+        axios.post(`api/createRecord/${account}`, patientData);
 
 
         patients(patientData);

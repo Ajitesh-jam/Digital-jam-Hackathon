@@ -22,7 +22,7 @@ export default function Home() {
         console.log("Login called");
         try {
             
-            const response = await axios.get(`http://localhost:8000/getRecord/${aadhar}/${password}`);
+            const response = await axios.get(`api/patient/getRecord/?aadhar=${aadhar}&password=${password}`);
             if (response.status === 200) {
                 patients(response.data); // Update patient data in Zustand
                 console.log("Successfully logged in as : ",response.data);

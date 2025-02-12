@@ -375,8 +375,12 @@ export default function Home() {
                             {medicalRecords.length > 0 ? (
                                 medicalRecords.map((record, index) => (
                                 <div key={index}>
+
+                                    
+
+
                                     <strong>Record {index + 1}  : </strong>
-                                    {fileUrls[index] ? (
+                                    {fileUrls[index]  ? (
                                     <a href={fileUrls[index]} target="_blank" rel="noopener noreferrer">
                                             :      Access File
                                     </a>

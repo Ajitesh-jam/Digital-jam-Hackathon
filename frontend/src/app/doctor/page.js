@@ -57,7 +57,7 @@ export default function Home() {
     useEffect(() => {
         const fetchPatients = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/getAllPatients");
+                const response = await axios.get("/api/patient/getAllPatients");
                 console.log("Fetched Patients:", response.data);
                 setAllPatients(response.data);
                 
