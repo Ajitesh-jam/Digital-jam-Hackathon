@@ -1,7 +1,7 @@
 import Web3 from "web3";
 import medicalRecordsABI from "../contracts/abi.json";
 
-const contractAddress = "0x9768B94a6Bc6687D0229587adceaD04908D73d3f"; 
+const contractAddress = "0xbF43C988e4F14B57F3208D31778Fb58e271e8FCB"; 
 
 // Initialize Web3 and contract
 export function Utils() {
@@ -45,7 +45,7 @@ export const addNewDoctor = async (doctorAddress) => {
     try {
         const response = await contract.methods
             .addNewDoctor(doctorAddress)
-            .send({ from: 0x3a94bD23Eb39cd8083A31C0e802F7f724e95b6c2 });
+            .send({ from: 0x3a94bD23Eb39cd8083A31C0e802F7f724e95b6c2 });// just call this method ot add new doctor 
 
             console.log("doctor added successfully");
         return response;

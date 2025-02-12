@@ -1,16 +1,10 @@
 import fs from "fs";
-import { exec } from "child_process";
 import path from "path";
 import { NextResponse } from "next/server";
 
-export async function GET(req, { params }) {
+export async function POST(req) {
   try {
-    const { searchParams } = new URL(req.url);
-    const recordHash = searchParams.get("recordHash");
-    const blockHash = searchParams.get("blockHash");
-
-    console.log("Handler called with block hash:", blockHash);
-    console.log("Handler called with record hash:", recordHash);
+    const { recordHash, blockHash } = await req.json();
 
     if (!recordHash || !blockHash) {
       return NextResponse.json({ success: false, error: "Missing parameters" });
@@ -24,21 +18,23 @@ export async function GET(req, { params }) {
     const recordHashArray = convertToAsciiArray(recordHash);
     const blockHashArray = convertToAsciiArray(blockHash);
 
-    const proverTomlPath = path.join(process.cwd(), "Prover.toml");
-
-    // Generate the Prover TOML file
+    // Generate prover.toml content
     const proverContent = `
 record_hash = [${recordHashArray.map((num) => `"${num}"`).join(", ")}]
 stored_cid = [${blockHashArray.map((num) => `"${num}"`).join(", ")}]
     `;
 
+    // Define file path
+    const proverTomlPath = path.join(process.cwd(), "public", "Prover.toml");
+
+    // Write the file
     fs.writeFileSync(proverTomlPath, proverContent);
 
-    console.log("prover.toml written successfully");
+    console.log("prover.toml generated successfully");
 
     return NextResponse.json({
       success: true,
-      message: "Proof generation setup completed",
+      downloadUrl: "/prover.toml",
     });
   } catch (error) {
     console.error("Error:", error);

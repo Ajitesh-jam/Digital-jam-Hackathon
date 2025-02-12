@@ -1,6 +1,7 @@
+'use client'
 import { useState } from "react";
 
-export default function ProofGenerator() {
+export default function ProofGenerator(hash,blockHash) {
   const [inputText, setInputText] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [downloadLink, setDownloadLink] = useState(null);
@@ -21,11 +22,12 @@ export default function ProofGenerator() {
     setDownloadLink(null);
 
     try {
-      const hash = await computeSHA256(inputText);
-      const blockHash = "1"; // Hardcoded for now
+    //  // const hash = await computeSHA256(inputText);
+    //   const hash = "51cd42ae58e433bfb6c8028c41f3aa5774a103167584b6e08df8408ae4954e68";
+    //   const blockHash = "51cd42ae58e433bfb6c8028c41f3aa5774a103167584b6e08df8408ae4954e68"; // Hardcoded for now
 
       // Send request to API route to execute commands
-      const response = await fetch("/api/generateProof", {
+      const response = await fetch("/api/generateproof", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ recordHash: hash, blockHash }),
@@ -60,7 +62,12 @@ export default function ProofGenerator() {
       </button>
       {downloadLink && (
         <div>
-          <p>Proof Generated! <a href={downloadLink} download>Download Proof</a></p>
+          <p>
+            Proof Generated!{" "}
+            <a href={downloadLink} download="prover.toml">
+              Download Proof
+            </a>
+          </p>
         </div>
       )}
     </div>
