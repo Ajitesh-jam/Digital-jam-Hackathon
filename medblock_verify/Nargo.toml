@@ -1,0 +1,6 @@
+[package]
+name = "medblock_verify"
+type = "bin"
+authors = [""]
+
+[dependencies]

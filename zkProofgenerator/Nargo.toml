@@ -1,0 +1,6 @@
+[package]
+name = "zkProofgenerator"
+type = "bin"
+authors = [""]
+
+[dependencies]

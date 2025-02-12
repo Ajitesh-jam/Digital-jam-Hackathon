@@ -1,0 +1,3 @@
+threshold = 1041379200  # Example: 18 years ago (Unix timestamp)
+dob = 946684800        # Example: User's DOB (Jan 1, 2000)
+
