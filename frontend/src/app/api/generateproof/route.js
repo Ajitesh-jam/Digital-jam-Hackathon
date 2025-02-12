@@ -1,50 +1,47 @@
 import fs from "fs";
 import { exec } from "child_process";
 import path from "path";
-
-
 import { NextResponse } from "next/server";
 
-
 export async function GET(req, { params }) {
-    try {
-        const { searchParams } = new URL(req.url);
-  const recordHash = searchParams.get("recordHash");
-  const blockHash = searchParams.get("blockHash");
-  //const queryType = searchParams.get("type");
-    //const { recordHash, blockHash } = req.body;
+  try {
+    const { searchParams } = new URL(req.url);
+    const recordHash = searchParams.get("recordHash");
+    const blockHash = searchParams.get("blockHash");
 
-    console.log("psot handler called with block hash ", blockHash);
-    console.log("psot handler called with record hash ", recordHash);
-    const proverTomlPath = path.join(process.cwd(), "prover.toml");
+    console.log("Handler called with block hash:", blockHash);
+    console.log("Handler called with record hash:", recordHash);
+
+    if (!recordHash || !blockHash) {
+      return NextResponse.json({ success: false, error: "Missing parameters" });
+    }
+
+    // Convert hash strings into an array of ASCII values
+    const convertToAsciiArray = (hash) => {
+      return hash.split("").map((char) => char.charCodeAt(0).toString());
+    };
+
+    const recordHashArray = convertToAsciiArray(recordHash);
+    const blockHashArray = convertToAsciiArray(blockHash);
+
+    const proverTomlPath = path.join(process.cwd(), "Prover.toml");
 
     // Generate the Prover TOML file
     const proverContent = `
-      record_hash = "${recordHash}"
-      stored_cid = "${blockHash}"
+record_hash = [${recordHashArray.map((num) => `"${num}"`).join(", ")}]
+stored_cid = [${blockHashArray.map((num) => `"${num}"`).join(", ")}]
     `;
+
     fs.writeFileSync(proverTomlPath, proverContent);
 
-    // // Run Nargo and Prover commands
-    // exec(
-    //   `cd /path/to/your/noir/project && nargo compile && bb prove -b ./target/dob_verification.json -w ./target/dob_verification.gz -o ./public/proof`,
-    //   (error, stdout, stderr) => {
-    //     if (error) {
-    //       console.error(`Error: ${error.message}`);
-    //       return res.status(500).json({ success: false, error: error.message });
-    //     }
+    console.log("prover.toml written successfully");
 
-    //     console.log("Proof Generated:", stdout);
-    //     return res.status(200).json({ success: true, downloadUrl: "/proof" });
-    //   }
-    // );
-    //return nextrespinse 
-    return NextResponse.json({ success: true, message: "Proof generated successfully" });
-
+    return NextResponse.json({
+      success: true,
+      message: "Proof generation setup completed",
+    });
   } catch (error) {
     console.error("Error:", error);
     return NextResponse.json({ success: false, error: error.message });
-
   }
 }
-
