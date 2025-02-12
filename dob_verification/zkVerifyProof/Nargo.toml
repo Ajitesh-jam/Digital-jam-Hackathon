@@ -1,6 +1,0 @@
-[package]
-name = "zkVerifyProof"
-type = "bin"
-authors = [""]
-
-[dependencies]
