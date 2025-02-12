@@ -26,7 +26,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const firestore = getFirestore(firebaseApp);
 
 // API to create a new record using Aadhar as the document ID
-app.post('/patient/createRecord/:publicAddress', async (req, res) => {
+app.post('/createRecord/:publicAddress', async (req, res) => {
   const { 
   
         name,
@@ -61,7 +61,7 @@ app.post('/patient/createRecord/:publicAddress', async (req, res) => {
 });
 
 // API to get a document by Aadhar (which is now the document ID)
-app.get('/patient/getRecord/:aadhar/:password', async (req, res) => {
+app.get('/getRecord/:aadhar/:password', async (req, res) => {
   const { aadhar } = req.params;
   const { password } = req.params; // Password provided in the request
 
@@ -93,7 +93,7 @@ app.get('/patient/getRecord/:aadhar/:password', async (req, res) => {
   }
 });
 
-app.get('/patient/getRecord/Test/:aadhar', async (req, res) => {
+app.get('/getRecord/Test/:aadhar', async (req, res) => {
   const { aadhar } = req.params;
   try {
     const docRef = doc(firestore, "patient", aadhar);
@@ -109,7 +109,7 @@ app.get('/patient/getRecord/Test/:aadhar', async (req, res) => {
 });
 
 // API to set or update password by public address
-app.get('/patient/getRecord/NewPass/:publicAddress', async (req, res) => {
+app.get('/getRecord/NewPass/:publicAddress', async (req, res) => {
   const { publicAddress } = req.params;
   const { password } = req.body; // New password provided in the request
 
@@ -142,7 +142,7 @@ app.get('/patient/getRecord/NewPass/:publicAddress', async (req, res) => {
   }
 });
 
-app.put('/patient/updateRecord/:aadhar', async (req, res) => {
+app.put('/updateRecord/:aadhar', async (req, res) => {
     const { aadhar } = req.params;
     const updates = req.body; // Extract only the fields provided in the request body
   
@@ -162,7 +162,7 @@ app.put('/patient/updateRecord/:aadhar', async (req, res) => {
   });
 
 // API to delete a document by Aadhar (document ID)
-app.delete('/patient/deleteRecord/:aadhar', async (req, res) => {
+app.delete('/deleteRecord/:aadhar', async (req, res) => {
   const { aadhar } = req.params;
   try {
     const docRef = doc(firestore, "patient", aadhar);
@@ -204,7 +204,7 @@ app.get('/api/queryRecords', async (req, res) => {
   }
 });
 
-app.get('/patient/getAllPatients',async (req,res)=>{
+app.get('/getAllPatients',async (req,res)=>{
   try{
     const collectionRef = collection(firestore, "patient");
     const querySnapshot = await getDocs(collectionRef);
