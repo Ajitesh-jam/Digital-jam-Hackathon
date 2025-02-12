@@ -15,7 +15,7 @@ import Pricing from "../components/home/Pricing"
 import Subscribe from "../components/home/Subscribe"
 
 
-import ProofGenerator from "../components/zkverify/proof"
+
 
 export default function Home() {
 
@@ -23,7 +23,7 @@ export default function Home() {
         <>
 
             <Layout headerStyle={1} footerStyle={1}>
-                <ProofGenerator></ProofGenerator>
+       
                 <Banner />
                 <Feature />
                 <WhyChooseUs/>

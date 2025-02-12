@@ -8,6 +8,8 @@ import { useState, useEffect} from 'react';
 
 
 import { retrieveFileWithSignedURL,uploadFile ,uploadMedicines } from '../../components/utils/pinata.js';
+
+import ProofGenerator from '@/src/components/zkverify/proof';
 const ProgressBar = ({ label, percent }) => (
     <div className="progress-box">
       <p>{label}</p>
@@ -102,20 +104,20 @@ export default function Home() {
     ]); // State for storing medical records
     
     const [fileUrls, setFileUrls] = useState([]); // Array to store URLs for each record
+    const [fileHashes, setFileHashes] = useState([]); // Array to store hashes for each record
     const [loading, setLoading] = useState([]);    // Array to track loading states for each record
+    
     // Function to get a medical record using the Web3 contract
     const handleGetMedicalRecord = async (publicAddress) => {
-        console.log("Handle get Medical Record with public Address : ",publicAddress);
+        console.log("Handle get Medical Record with public Address : ", publicAddress);
         try {
             if (!publicAddress) {
                 console.log("No public address provided");
                 return;
             }
-            const medicalRecord = await getMedicalRecord(publicAddress,account);
-
-            console.log("Records Fetched by handleGetMedical Record : ",medicalRecord);
+            const medicalRecord = await getMedicalRecord(publicAddress, account);
+            console.log("Records Fetched by handleGetMedical Record : ", medicalRecord);
             setMedicalRecords(medicalRecord);
-
             return medicalRecord; // Return the fetched medical record
         } catch (e) {
             console.error("Error fetching medical record:", e);
@@ -123,24 +125,28 @@ export default function Home() {
             return [];
         }
     };
-
-    //Function to Update Links whenever change in medical records
-    useEffect(() => {
-        if(medicalRecords.length > 0){
-          medicalRecords.forEach((record, index) => {
     
-            if (!fileUrls[index] && !loading[index] ) {
-              if(record!="No records found")
-              handleRetrieve(record, index);
-              else{
-                setFileUrls([...fileUrls, "No records found"]);
-                setLoading([...loading, false]);
-              } 
-            }
-          });
-      }
+    // Function to Update Links whenever change in medical records
+    useEffect(() => {
+        if (medicalRecords.length > 0) {
+            medicalRecords.forEach((record, index) => {
+                if (!fileUrls[index] && !loading[index]) {
+                    if (record.cid && record.hash) {
+                        handleRetrieve(record.cid, index);
+                        setFileHashes((prevHashes) => {
+                            const newHashes = [...prevHashes];
+                            newHashes[index] = record.hash;
+                            return newHashes;
+                        });
+                    } else {
+                        setFileUrls((prevUrls) => [...prevUrls, "No records found"]);
+                        setFileHashes((prevHashes) => [...prevHashes, "No records found"]);
+                        setLoading((prevLoading) => [...prevLoading, false]);
+                    }
+                }
+            });
+        }
     }, [medicalRecords]);
-
     //function to get file links from Pinata 
     const handleRetrieve = async (cid, index) => {
         if (!cid) return;
@@ -291,7 +297,6 @@ export default function Home() {
       //make a new component with the selected medicines and add summary date Symtopms and subject and highlights to it 
       const medical_Report = {
         summary: summary,
-        date: date,
         symptoms: Symptoms,
         subject: subject,
         highlights: highlights,
@@ -299,12 +304,20 @@ export default function Home() {
       }
       console.log("MedicalReport  ", medical_Report);
 
+
       //pinata upload 
       const response = await uploadMedicines(medical_Report);
       console.log("Response from uploadMedicines : ",response.data.cid);
       console.log("Medicine Report CID: ", response.data.cid);
 
       //blockchain update
+
+      const encoder = new TextEncoder();
+      const data = encoder.encode(medical_Report);
+      const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
       try {
         if (!patient || !response.data.cid) {
           console.error("No patient selected or medicines selected.");
@@ -319,11 +332,6 @@ export default function Home() {
       }
         
     }
-
-
-
-
-
 
     return (
         <>
@@ -379,13 +387,23 @@ export default function Home() {
                                     
 
 
-                                    <strong>Record {index + 1}  : </strong>
-                                    {fileUrls[index]  ? (
+                                    {fileUrls[index]  && index!=0? (
+                                      <>
+                                      <strong>Record {index }  : </strong>
                                     <a href={fileUrls[index]} target="_blank" rel="noopener noreferrer">
-                                            :      Access File
+                                            :      Access File  
                                     </a>
+
+                                    
+                                     <br></br>
+
+                                    <ProofGenerator blockHash={fileHashes[index]} ></ProofGenerator>
+
+                                    </>
+
                                     ) : (
-                                    <span className="loading-animation">Fetching record...</span>
+
+                                            <></>
                                     )}
                                 </div>
                                 ))

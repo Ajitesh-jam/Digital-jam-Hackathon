@@ -1,7 +1,7 @@
 import Web3 from "web3";
 import medicalRecordsABI from "../contracts/abi.json";
 
-const contractAddress = "0xbF43C988e4F14B57F3208D31778Fb58e271e8FCB"; 
+const contractAddress = "0x325Ec2eCE44377C790dC0e96B1Fd41d12B4B062F"; 
 
 // Initialize Web3 and contract
 export function Utils() {
@@ -70,7 +70,7 @@ export const updateRecordByPatient = async (record) => {
 };
 
 // Update medical record by doctor
-export const updateRecordByDoctor = async (patientAddress, record) => {
+export const updateRecordByDoctor = async (patientAddress, hash,record) => {
     const contract = medicalRecordsContract();
     const accounts = await getAccounts();
 
@@ -84,7 +84,7 @@ export const updateRecordByDoctor = async (patientAddress, record) => {
 		// });
 
         const response = await contract.methods
-            .updateRecordByDoctor(patientAddress, record)
+            .updateRecordByDoctor(patientAddress, hash,record)
             .send({ from: accounts[0],
              });
 
