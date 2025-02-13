@@ -111,7 +111,7 @@ export default function Home() {
                                 </div>
 
                                 <div className="col-lg-4 col-md-12 col-sm-12 image-column">
-                                    <figure className="image-box"><img src="assets/images/resource/contact-1.jpg" alt="" /></figure>
+                                    <figure className="image-box"><img src="assets/images/doctor.png" alt="" /></figure>
                                 </div>
                                 
                             </div>

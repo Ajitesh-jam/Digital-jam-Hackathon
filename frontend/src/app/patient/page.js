@@ -63,7 +63,7 @@ export default function service() {
     
             if (!fileUrls[index] && !loading[index] ) {
                 if(record!="No records found")
-                handleRetrieve(record, index);
+                handleRetrieve(record.cid, index);
                 else{
                 setFileUrls([...fileUrls, "No records found"]);
                 setLoading([...loading, false]);
@@ -318,7 +318,7 @@ export default function service() {
                                         <div className="col-lg-4 col-md-6 col-sm-12 news-block">
                                             <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                                                 <div className="inner-box">
-                                                    <figure className="image-box"><Link href="blog-details"><img src="assets/images/news/news-1.jpg" alt="" /></Link></figure>
+                                                    <figure className="image-box"><Link href="blog-details"><img src="https://providencekc.com/wp-content/uploads/2022/09/Request-for-medical-records-PMC1024_1.jpg" alt="" /></Link></figure>
                                                     <div className="lower-content">
                                                         <ul className="post-info mb_15 clearfix">
                                                             <li><Link href="blog-details">Admin</Link></li>
@@ -337,7 +337,7 @@ export default function service() {
                                         <div className="col-lg-4 col-md-6 col-sm-12 news-block">
                                     <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                                         <div className="inner-box">
-                                            <figure className="image-box"><Link href="blog-details"><img src="assets/images/news/news-1.jpg" alt="" /></Link></figure>
+                                            <figure className="image-box"><Link href="blog-details"><img src="https://providencekc.com/wp-content/uploads/2022/09/Request-for-medical-records-PMC1024_1.jpg" alt="" /></Link></figure>
                                             <div className="lower-content">
                                                 <ul className="post-info mb_15 clearfix">
                                                     <li><Link href="blog-details">Admin</Link></li>
@@ -356,7 +356,7 @@ export default function service() {
                                         <div className="col-lg-4 col-md-6 col-sm-12 news-block">
                                     <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                                         <div className="inner-box">
-                                            <figure className="image-box"><Link href="blog-details"><img src="assets/images/news/news-1.jpg" alt="" /></Link></figure>
+                                            <figure className="image-box"><Link href="blog-details"><img src="https://providencekc.com/wp-content/uploads/2022/09/Request-for-medical-records-PMC1024_1.jpg" alt="" /></Link></figure>
                                             <div className="lower-content">
                                                 <ul className="post-info mb_15 clearfix">
                                                     <li><Link href="blog-details">Admin</Link></li>

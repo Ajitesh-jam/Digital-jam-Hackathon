@@ -10,6 +10,7 @@ import { useState, useEffect} from 'react';
 import { retrieveFileWithSignedURL,uploadFile ,uploadMedicines } from '../../components/utils/pinata.js';
 
 import ProofGenerator from '@/src/components/zkverify/proof';
+import { hash } from 'bcryptjs';
 const ProgressBar = ({ label, percent }) => (
     <div className="progress-box">
       <p>{label}</p>
@@ -318,13 +319,15 @@ export default function Home() {
       const hashArray = Array.from(new Uint8Array(hashBuffer));
       const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
 
+      console.log("Hash hex : ", hashHex);
+
       try {
         if (!patient || !response.data.cid) {
           console.error("No patient selected or medicines selected.");
           alert("Please select a patient and medicines to update");
           return;
         }
-        const updatedMedicines = await updateRecordByDoctor(patient.publicAddress, response.data.cid);
+        const updatedMedicines = await updateRecordByDoctor(patient.publicAddress, hashHex,response.data.cid,);
         console.log("Updated medicines:", updatedMedicines);
       }
       catch (error) {
@@ -332,6 +335,9 @@ export default function Home() {
       }
         
     }
+
+
+
 
     return (
         <>

@@ -7,17 +7,6 @@
 				"type": "address"
 			}
 		],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_doctor",
-				"type": "address"
-			}
-		],
 		"name": "addNewDoctor",
 		"outputs": [],
 		"stateMutability": "nonpayable",
@@ -58,6 +47,48 @@
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "_doctor",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_patient",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "_record",
+				"type": "string"
+			}
+		],
+		"name": "updateRecordByDoctor",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_record",
+				"type": "string"
+			}
+		],
+		"name": "updateRecordByPatient",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "_patient",
 				"type": "address"
 			}
@@ -84,78 +115,12 @@
 		"name": "getMedicalRecord",
 		"outputs": [
 			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "cid",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "hash",
-						"type": "string"
-					}
-				],
-				"internalType": "struct MedicalRecords.MedicalRecord[]",
+				"internalType": "string[]",
 				"name": "",
-				"type": "tuple[]"
+				"type": "string[]"
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "owner",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_patient",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "_cid",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_hash",
-				"type": "string"
-			}
-		],
-		"name": "updateRecordByDoctor",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_cid",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_hash",
-				"type": "string"
-			}
-		],
-		"name": "updateRecordByPatient",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{

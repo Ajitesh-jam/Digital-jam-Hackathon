@@ -16,7 +16,7 @@ export default function Menu() {
                 <li className="dropdown"><Link href="/">Home</Link>
                    
                 </li>
-                <li><Link href="/lifeCoin">LifeCoin</Link></li>
+
                 
                 <li className="dropdown"><Link href="/patient-login">Patient</Link>
                     
