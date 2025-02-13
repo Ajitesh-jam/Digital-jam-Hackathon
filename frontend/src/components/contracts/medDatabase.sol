@@ -84,5 +84,5 @@ contract MedicalRecords {
 }
 
 
-//contract address : 0xbF43C988e4F14B57F3208D31778Fb58e271e8FCB
+//contract address : 0x325Ec2eCE44377C790dC0e96B1Fd41d12B4B062F
 // doctor address : 0x3a94bD23Eb39cd8083A31C0e802F7f724e95b6c2

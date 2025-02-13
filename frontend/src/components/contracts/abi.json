@@ -49,6 +49,11 @@
 				"internalType": "address",
 				"name": "_doctor",
 				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_doctor2",
+				"type": "address"
 			}
 		],
 		"stateMutability": "nonpayable",
@@ -63,7 +68,12 @@
 			},
 			{
 				"internalType": "string",
-				"name": "_record",
+				"name": "_cid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_hash",
 				"type": "string"
 			}
 		],
@@ -76,7 +86,12 @@
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "_record",
+				"name": "_cid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_hash",
 				"type": "string"
 			}
 		],
@@ -115,9 +130,34 @@
 		"name": "getMedicalRecord",
 		"outputs": [
 			{
-				"internalType": "string[]",
+				"components": [
+					{
+						"internalType": "string",
+						"name": "cid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "hash",
+						"type": "string"
+					}
+				],
+				"internalType": "struct MedicalRecords.MedicalRecord[]",
 				"name": "",
-				"type": "string[]"
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",

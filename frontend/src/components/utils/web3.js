@@ -104,7 +104,7 @@ export const getMedicalRecord = async (patientAddress,DoctorAddress) => {
     try {
         const records = await contract.methods
             .getMedicalRecord(patientAddress)
-            .call({ from: DoctorAddress });
+            .call({ from: DoctorAddress }); //Change this to become a Doctor with address : 0x3a94bD23Eb39cd8083A31C0e802F7f724e95b6c2
         
             console.log("Fetched Records by web3 utils : ",records);
         return records;
