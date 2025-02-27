@@ -73,8 +73,13 @@ export default function Home() {
                                                     </div>
                                                     
                                                 </div>
+                                                <div>
+                                                <br></br>
                                                 <button type="submit" className="theme-btn btn-one" onClick={login}><span>Login </span></button>
                                                 Don't have an account? <Link href="/patient-signup">Register</Link>
+                                                </div>
+
+                                                <div>Dummy login : <br></br> Aadhar:987654321 <br></br> Password:SecureNewPassword123 </div>
                                         </>
 
 

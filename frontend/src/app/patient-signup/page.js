@@ -7,8 +7,6 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import bcrypt from "bcryptjs";
 
-import tryimg from "../../../public/assets/images/NewLogo.png";
-
 export default function Home() {
 
     const [isActive, setIsActive] = useState({ status: false, key: 1 });
