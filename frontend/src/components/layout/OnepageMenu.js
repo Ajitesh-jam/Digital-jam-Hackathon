@@ -21,11 +21,11 @@ export default function Menu() {
                         <li><Link href="/onepage">OnePage Home</Link></li>
                     </ul>
                 </li>
-                <li><Link href="#about">About</Link></li>
-                <li><Link href="#service">Service</Link></li>
-                <li><Link href="#team">Team</Link></li>
-                <li><Link href="#news">News</Link></li>
-                <li><Link href="#footer">Footer</Link></li> 
+                <li><Link href="#">home</Link></li>
+                <li><Link href="#">home</Link></li>
+                <li><Link href="#">home</Link></li>
+                <li><Link href="#">home</Link></li>
+                <li><Link href="#">home</Link></li> 
             </ul>
 
         </>

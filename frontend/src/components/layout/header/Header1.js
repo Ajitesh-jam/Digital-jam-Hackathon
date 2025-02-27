@@ -55,7 +55,8 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
               <div className="outer-box">
                 <div className="logo-box">
                   <figure className="logo">
-                    <Link href="/"><img src="assets/images/logo2.png" alt="" /></Link>
+                    <Link href="/"><img src="https://img.freepik.com/free-vector/charity-logo-h…-flat-design-vector-illustration_53876-136266.jpg" width={50}
+    height={70} alt="" /></Link>
                   </figure>
                 </div>
                 <div className="menu-area">
