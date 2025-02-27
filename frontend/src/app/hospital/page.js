@@ -102,6 +102,9 @@ export default function Home() {
                                                     <div className="col-lg-6 col-md-6 col-sm-12 form-group">
                                                         <input type="text" name="summary" placeholder="Password"  onChange={(e) => setPassword(e.target.value)} required />
                                                     </div>
+
+
+                                                    <div>For Dummy login you can just click on login</div>
                                                     
                                                 </div>
                                                 <button type="submit" className="theme-btn btn-one" onClick={login}><span>Login </span></button>

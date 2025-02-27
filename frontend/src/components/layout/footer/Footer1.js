@@ -33,9 +33,8 @@ export default function Footer1() {
                                 <div className="widget-content">
                                     <ul className="links-list clearfix">
                                         <li><Link href="/">Home</Link></li>
-                                        <li><Link href="about">About Us</Link></li>
-                                        <li><Link href="service">Services</Link></li>
-                                        <li><Link href="/">Elements</Link></li>
+                                        <li><Link href="/patient">patient</Link></li>
+                                       
                                         <li><Link href="contact">Contacts Us</Link></li>
                                     </ul>
                                 </div>
@@ -67,7 +66,7 @@ export default function Footer1() {
                                     <ul className="info-list">
                                         <li><img src="assets/images/icons/icon-1.png" alt="" />IIT Kharagpur</li>
                                         <li><i className="icon-2"></i><Link href="tel:01989526503">0198-9526503</Link></li>
-                                        <li><i className="icon-26"></i><Link href="mailto:example@info.com">example@info.com</Link></li>
+                                        <li><i className="icon-26"></i><Link href="mailto:example@info.com">ajitesh@info.com</Link></li>
                                     </ul>
                                 </div>
                             </div>

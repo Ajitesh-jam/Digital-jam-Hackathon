@@ -375,10 +375,18 @@ export default function service() {
 
 
                                         <div className="col-lg-6 col-md-6 col-sm-12 image-column">
-                                            <figure className="image-box mb_30"><img src="assets/images/service/service-8.jpg" alt="" /></figure>
+                                            <figure className="image-box mb_40">
+                                            <img
+                                                src="https://img.freepik.com/premium-photo/community-teamwork-medical-with-hands-doctors-support-diversity-solidarity-healthcare-synergy-stack-with-group-people-mission-medicine-motivation-hospital_590464-168151.jpg?w=360"
+                                                width={90}
+                                                height={100}
+                                                alt="Community teamwork in medical field"
+                                            />
+                                            </figure>
+
                                         </div>
                                         <div className="col-lg-6 col-md-6 col-sm-12 image-column">
-                                            <figure className="image-box mb_30"><img src="assets/images/service/service-9.jpg" alt="" /></figure>
+                                            <figure className="image-box mb_30"><img src="https://us.images.westend61.de/0001820746pw/senior…ring-scrubs-in-a-teaching-hospital-JLPPF01801.jpg" alt="" /></figure>
                                         </div>
                                     </div>
                                 </div>

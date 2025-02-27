@@ -33,14 +33,14 @@ export default function Sidebar({ isSidebar, handleSidebar }) {
                                     <ul>
                                         <li>IIT Kharagpur</li>
                                         <li><Link href="tel:+8801682648101">+88 01682648101</Link></li>
-                                        <li><Link href="mailto:info@example.com">info@example.com</Link></li>
+                                        <li><Link href="mailto:info@example.com">ajitesh@gmail.com</Link></li>
                                     </ul>
                                 </div>
                                 <ul className="social-box">
-                                    <li><Link href="index-2.html"><i className="icon-4"></i></Link></li>
-                                    <li><Link href="index-2.html"><i className="icon-5"></i></Link></li>
-                                    <li><Link href="index-2.html"><i className="icon-6"></i></Link></li>
-                                    <li><Link href="index-2.html"><i className="icon-7"></i></Link></li>
+                                    <li><Link href="#"><i className="icon-4"></i></Link></li>
+                                    <li><Link href="#"><i className="icon-5"></i></Link></li>
+                                    <li><Link href="#"><i className="icon-6"></i></Link></li>
+                                    <li><Link href="#"><i className="icon-7"></i></Link></li>
                                 </ul>
                             </div>
                         </div>

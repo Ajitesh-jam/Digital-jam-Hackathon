@@ -130,7 +130,7 @@ export default function Home() {
                                                 </div>
                                                 <div className="lower-content">
                                                     <h3>
-                                                        <Link href="patient-data" onClick={()=>{
+                                                        <Link href="doctor-patient-data" onClick={()=>{
                                                             setPatient(member);
                                                         }}>
                                                             {member.name}
@@ -148,18 +148,18 @@ export default function Home() {
                             <div className="pagination-wrapper mt_20 centred">
                                 <ul className="pagination clearfix">
                                     <li>
-                                        <Link href="team" className="current">
+                                        <Link href="#" className="current">
                                             1
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="team">2</Link>
+                                        <Link href="#">2</Link>
                                     </li>
                                     <li>
-                                        <Link href="team">3</Link>
+                                        <Link href="#">3</Link>
                                     </li>
                                     <li>
-                                        <Link href="team">
+                                        <Link href="#">
                                             <i className="icon-36"></i>
                                         </Link>
                                     </li>

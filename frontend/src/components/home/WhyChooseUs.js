@@ -3,7 +3,7 @@ import React from 'react';
 export default function chooseus() {
   return (
     <section className="chooseus-section">
-    <div className="bg-layer" style={{ backgroundImage: 'url(assets/images/background/chooseus-bg.jpg)' }}></div>
+    <div className="bg-layer" style={{ backgroundImage: 'url(https://media.istockphoto.com/id/1152844782/photo/im-glad-to-see-you-doing-well.jpg?s=612x612&w=0&k=20&c=r7KVPoP1UT4qANvyr3jeXokWVdnUOJ732on6Ve-ynCY=)' }}></div>
     <div className="pattern-layer" style={{ backgroundImage: 'url(assets/images/shape/shape-12.png)' }}></div>
     <div className="auto-container">
       <div className="row clearfix">
